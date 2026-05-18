@@ -1633,7 +1633,7 @@
         "name": "Subterranean Complex",
         "access_rules": [
           "$CanAccess|SC",
-          "$HasKey|SC,$Has|BP,^$SB"
+          "$HasKey|SC,$Has|BP,$Has|NS,^$SB"
         ],
         "children": [
           {
@@ -4773,8 +4773,7 @@
             "name": "Chance Totem",
             "hosted_item": "loc_chancetotem",
             "access_rules": [
-              "$Has|PP,$Has|WP,$CheckBuried|AW Chance Totem",
-              "$Has|BP,^$SB,$CheckBuried|AW Chance Totem"
+              "$Has|PP,$Has|WP,$CheckBuried|AW Chance Totem"
             ]
           },
           {
@@ -4788,8 +4787,7 @@
             "name": "Geographic Projection",
             "hosted_item": "loc_geographicprojection",
             "access_rules": [
-              "$Has|WP,$CheckBuried|AW Geographic Projection",
-              "$Has|BP,^$SB,$CheckBuried|AW Geographic Projection"
+              "$Has|WP,$CheckBuried|AW Geographic Projection"
             ]
           },
           {
@@ -4804,15 +4802,14 @@
             "name": "Decorative Goo",
             "hosted_item": "loc_decorativegoo",
             "access_rules": [
-              "$Has|YP,$Has|PP,$CheckBuried|AW Decorative Goo",
-              "$Has|YP,$Has|BP,$CheckBuried|AW Decorative Goo"
+              "$Has|YP,$Has|PP,$CheckBuried|AW Decorative Goo"
             ]
           },
           {
             "name": "Air Brake",
             "hosted_item": "loc_airbrake",
             "access_rules": [
-              "$Has|BP,$CheckBuried|AW Air Brake",
+              "$Has|BP,$Has|WP,$CheckBuried|AW Air Brake",
               "$Has|WP,^$SB,$CheckBuried|AW Air Brake"
             ]
           }
@@ -6393,8 +6390,7 @@
       {
         "name": "White Flower Garden",
         "access_rules": [
-          "$CanAccess|WFG,$Has|W2",
-          "$HasKey|WFG,$Has|BP,$Has|W2,^$SB"
+          "$CanAccess|WFG,$Has|W2"
         ],
         "children": [
           {
@@ -7958,7 +7954,7 @@
         "name": "Bulblax Kingdom",
         "access_rules": [
           "$CanAccess|BK,$Has|W2",
-          "$HasKey|BK,$Has|YP,$Has|BP,$Has|W2,^$SB"
+          "$HasKey|BK,$Has|NS,$Has|W2,^$SB"
         ],
         "children": [
           {
@@ -11114,7 +11110,8 @@
             "name": "Fortified Delicacy",
             "hosted_item": "loc_fortifieddelicacy",
             "access_rules": [
-              "$Has|BP,$CheckBuried|PP Fortified Delicacy"
+              "$Has|BP,$Has|YP,$CheckBuried|PP Fortified Delicacy",
+              "$Has|BP,$Has|RA,^$SB,$CheckBuried|PP Fortified Delicacy"
             ]
           },
           {
@@ -11135,8 +11132,7 @@
             "name": "Massage Girdle",
             "hosted_item": "loc_massagegirdle",
             "access_rules": [
-              "$Has|BP,$CheckBuried|PP Massage Girdle",
-              "$Has|YP,^$SB,$CheckBuried|PP Massage Girdle"
+              "$Has|BP,$CheckBuried|PP Massage Girdle"
             ]
           }
         ],
@@ -12716,7 +12712,8 @@
       {
         "name": "Glutton's Kitchen",
         "access_rules": [
-          "$CanAccess|GK,$Has|W3"
+          "$CanAccess|GK,$Has|W3",
+          "$HasKey|GK,$Has|NS,$Has|W3,^$SB"
         ],
         "children": [
           {
@@ -14280,7 +14277,7 @@
         "name": "Shower Room",
         "access_rules": [
           "$CanAccess|SR,$Has|W3",
-          "$HasKey|SR,$Has|BP,$Has|W3,^$SB"
+          "$HasKey|SR,$Has|BP,$Has|RA,$Has|W3,^$SB"
         ],
         "children": [
           {
@@ -15843,8 +15840,7 @@
       {
         "name": "Submerged Castle",
         "access_rules": [
-          "$CanAccess|SMGC,$Has|W3",
-          "$HasKey|SMGC,$Has|YP,$Has|W3,^$SB"
+          "$CanAccess|SMGC,$Has|W3"
         ],
         "children": [
           {
@@ -17405,7 +17401,7 @@
         ]
       },
       {
-        "name": "Doomsday Apparatus",
+        "name": "Wistful Wild",
         "access_rules": [
           "$Has|W4"
         ],
@@ -17422,7 +17418,7 @@
             "hosted_item": "loc_seedofgreed",
             "access_rules": [
               "$Has|BP,$Has|WP,$CheckBuried|WW Seed of Greed",
-              "$Has|BP,^$SB,$CheckBuried|WW Seed of Greed"
+              "$Has|WP,^$SB,$CheckBuried|WW Seed of Greed"
             ]
           },
           {
@@ -17430,14 +17426,15 @@
             "hosted_item": "loc_anti-hiccupfungus",
             "access_rules": [
               "$Has|BP,$Has|WP,$CheckBuried|WW Anti-hiccup Fungus",
-              "$Has|BP,^$SB,$CheckBuried|WW Anti-hiccup Fungus"
+              "$Has|WP,^$SB,$CheckBuried|WW Anti-hiccup Fungus"
             ]
           },
           {
             "name": "Armored Nut",
             "hosted_item": "loc_armorednut",
             "access_rules": [
-              "$Has|BP,$CheckBuried|WW Armored Nut"
+              "$Has|BP,$CheckBuried|WW Armored Nut",
+              "^$SB,$CheckBuried|WW Armored Nut"
             ]
           },
           {
@@ -19024,8 +19021,7 @@
       {
         "name": "Hole of Heroes",
         "access_rules": [
-          "$CanAccess|HoH,$Has|W4",
-          "$HasKey|HoH,$Has|W4,^$SB"
+          "$CanAccess|HoH,$Has|W4"
         ],
         "children": [
           {
@@ -20589,7 +20585,7 @@
         "name": "Dream Den",
         "access_rules": [
           "$CanAccess|DD,$Has|W4",
-          "$HasKey|DD,$Has|W4,^$SB"
+          "$HasKey|DD,$Has|WP,$Has|W4,^$SB"
         ],
         "children": [
           {

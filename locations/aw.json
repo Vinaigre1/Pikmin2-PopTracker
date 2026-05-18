@@ -28,8 +28,7 @@
       {
         "name": "Chance Totem",
         "access_rules": [
-          "$Has|PP,$Has|WP,$CheckBuried|AW Chance Totem",
-          "$Has|BP,^$SB,$CheckBuried|AW Chance Totem"
+          "$Has|PP,$Has|WP,$CheckBuried|AW Chance Totem"
         ],
         "sections": [
           {
@@ -69,8 +68,7 @@
       {
         "name": "Geographic Projection",
         "access_rules": [
-          "$Has|WP,$CheckBuried|AW Geographic Projection",
-          "$Has|BP,^$SB,$CheckBuried|AW Geographic Projection"
+          "$Has|WP,$CheckBuried|AW Geographic Projection"
         ],
         "sections": [
           {
@@ -111,8 +109,7 @@
       {
         "name": "Decorative Goo",
         "access_rules": [
-          "$Has|YP,$Has|PP,$CheckBuried|AW Decorative Goo",
-          "$Has|YP,$Has|BP,$CheckBuried|AW Decorative Goo"
+          "$Has|YP,$Has|PP,$CheckBuried|AW Decorative Goo"
         ],
         "sections": [
           {
@@ -1700,8 +1697,7 @@
       {
         "name": "White Flower Garden",
         "access_rules": [
-          "$CanAccess|WFG",
-          "$HasKey|WFG,$Has|BP,^$SB"
+          "$CanAccess|WFG"
         ],
         "children": [
           {
@@ -3249,7 +3245,7 @@
         "name": "Bulblax Kingdom",
         "access_rules": [
           "$CanAccess|BK",
-          "$HasKey|BK,$Has|YP,$Has|BP,^$SB"
+          "$HasKey|BK,$Has|NS,^$SB"
         ],
         "children": [
           {

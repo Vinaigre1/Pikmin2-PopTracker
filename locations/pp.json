@@ -69,7 +69,8 @@
       {
         "name": "Fortified Delicacy",
         "access_rules": [
-          "$Has|BP,$CheckBuried|PP Fortified Delicacy"
+          "$Has|BP,$Has|YP,$CheckBuried|PP Fortified Delicacy",
+          "$Has|BP,^$SB,$CheckBuried|PP Fortified Delicacy"
         ],
         "sections": [
           {
@@ -129,8 +130,7 @@
       {
         "name": "Massage Girdle",
         "access_rules": [
-          "$Has|BP,$CheckBuried|PP Massage Girdle",
-          "$Has|YP,^$SB,$CheckBuried|PP Massage Girdle"
+          "$Has|BP,$CheckBuried|PP Massage Girdle"
         ],
         "sections": [
           {
@@ -1697,7 +1697,8 @@
       {
         "name": "Glutton's Kitchen",
         "access_rules": [
-          "$CanAccess|GK"
+          "$CanAccess|GK",
+          "$HasKey|GK,$Has|NS,^$SB"
         ],
         "children": [
           {
@@ -3245,7 +3246,7 @@
         "name": "Shower Room",
         "access_rules": [
           "$CanAccess|SR",
-          "$HasKey|SR,$Has|BP,^$SB"
+          "$HasKey|SR,$Has|BP,$Has|RA,^$SB"
         ],
         "children": [
           {
@@ -4792,8 +4793,7 @@
       {
         "name": "Submerged Castle",
         "access_rules": [
-          "$CanAccess|SMGC",
-          "$HasKey|SMGC,$Has|YP,^$SB"
+          "$CanAccess|SMGC"
         ],
         "children": [
           {

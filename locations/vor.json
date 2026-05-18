@@ -1694,7 +1694,7 @@
         "name": "Subterranean Complex",
         "access_rules": [
           "$CanAccess|SC",
-          "$HasKey|SC,$Has|BP,^$SB"
+          "$HasKey|SC,$Has|BP,$Has|NS,^$SB"
         ],
         "children": [
           {

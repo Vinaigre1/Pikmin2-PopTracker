@@ -29,7 +29,7 @@
         "name": "Seed of Greed",
         "access_rules": [
           "$Has|BP,$Has|WP,$CheckBuried|WW Seed of Greed",
-          "$Has|BP,^$SB,$CheckBuried|WW Seed of Greed"
+          "$Has|WP,^$SB,$CheckBuried|WW Seed of Greed"
         ],
         "sections": [
           {
@@ -50,7 +50,7 @@
         "name": "Anti-hiccup Fungus",
         "access_rules": [
           "$Has|BP,$Has|WP,$CheckBuried|WW Anti-hiccup Fungus",
-          "$Has|BP,^$SB,$CheckBuried|WW Anti-hiccup Fungus"
+          "$Has|WP,^$SB,$CheckBuried|WW Anti-hiccup Fungus"
         ],
         "sections": [
           {
@@ -70,7 +70,8 @@
       {
         "name": "Armored Nut",
         "access_rules": [
-          "$Has|BP,$CheckBuried|WW Armored Nut"
+          "$Has|BP,$CheckBuried|WW Armored Nut",
+          "^$SB,$CheckBuried|WW Armored Nut"
         ],
         "sections": [
           {
@@ -1657,8 +1658,7 @@
       {
         "name": "Hole of Heroes",
         "access_rules": [
-          "$CanAccess|HoH",
-          "$HasKey|HoH,^$SB"
+          "$CanAccess|HoH"
         ],
         "children": [
           {
@@ -3206,7 +3206,7 @@
         "name": "Dream Den",
         "access_rules": [
           "$CanAccess|DD",
-          "$HasKey|DD,^$SB"
+          "$HasKey|DD,$Has|WP,$Has|W4,^$SB"
         ],
         "children": [
           {

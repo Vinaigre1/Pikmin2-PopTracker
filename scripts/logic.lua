@@ -31,6 +31,7 @@ function Has(item)
     ["W4"] = "debt",
 
     ["NS"] = "five-mannapsack",
+    ["RA"] = "repugnantappendage"
   }
 
   if item == "W4" then
@@ -118,30 +119,101 @@ end
 
 function CanAccess(cave)
   local cave_access = {
-    EC = {},
-    SC = {"BP", "WP"},
-    FC = {"BP"},
-    HoB = {"W2"},
-    WFG = {"W2", "PP"},
-    BK = {"W2", "YP", "PP", "WP"},
-    SH = {"W2", "BP", "WP"},
-    CoS = {"W3"},
-    GK = {"W3", "YP"},
-    SR = {"W3", "BP", "YP"},
-    SMGC = {"W3", "BP"},
-    CoC = {"W4"},
-    HoH = {"W4", "BP", "YP"},
-    DD = {"W4", "WP", "BP"},
+    EC = "$HasKey|EC",
+
+    SC = {
+      "$HasKey|SC,$Has|BP,$Has|WP",
+      "$HasKey|SC,$Has|BP,$Has|NS,^$SB",
+    },
+
+    FC = "$HasKey|FC,$Has|BP",
+
+    HoB = "$HasKey|HoB,$Has|W2",
+
+    WFG = "$HasKey|WFG,$Has|W2,$Has|PP",
+
+    BK = {
+      "$HasKey|BK,$Has|W2,$Has|YP,$Has|PP,$Has|WP",
+      "$HasKey|BK,$Has|W2,$Has|NS,^$SB",
+    },
+
+    SH = {
+      "$HasKey|SH,$Has|W2,$Has|BP,$Has|WP",
+      "$HasKey|SH,$Has|W2,$Has|WP,^$SB",
+    },
+
+    CoS = "$HasKey|CoS,$Has|W3",
+
+    GK = {
+      "$HasKey|GK,$Has|W3,$Has|YP",
+      "$HasKey|GK,$Has|W3,$Has|NS,^$SB",
+    },
+
+    SR = {
+      "$HasKey|SR,$Has|W3,$Has|BP,$Has|YP",
+      "$HasKey|SR,$Has|W3,$Has|BP,$Has|RA,^$SB",
+    },
+
+    SMGC = "$HasKey|SMGC,$Has|W3,$Has|BP",
+
+    CoC = "$HasKey|CoC,$Has|W4",
+
+    HoH = "$HasKey|HoH,$Has|W4,$Has|BP,$Has|YP",
+
+    DD = {
+      "$HasKey|DD,$Has|W4,$Has|WP,$Has|BP",
+      "$HasKey|DD,$Has|W4,$Has|WP,^$SB",
+    },
   }
 
-  if not HasKey(cave) then
+  return EvaluateAccessRules(cave_access[cave])
+end
+
+function EvaluateAccessRules(rules)
+  if rules == nil then
     return false
   end
-  for _, key in ipairs(cave_access[cave]) do
-    if not Has(key) then
-      return false
+
+  if type(rules) == "string" then
+    return EvaluateRuleRoute(rules)
+  end
+
+  for _, route in ipairs(rules) do
+    local result = EvaluateRuleRoute(route)
+
+    if result == true then
+      return true
+    elseif result == AccessibilityLevel.SequenceBreak then
+      return AccessibilityLevel.SequenceBreak
     end
   end
+
+  return false
+end
+
+function EvaluateRuleRoute(route)
+  local is_sequence_break = false
+
+  for rule in string.gmatch(route, "([^,]+)") do
+    if rule == "^$SB" then
+      is_sequence_break = true
+    elseif string.sub(rule, 1, 8) == "$HasKey|" then
+      local key = string.sub(rule, 9)
+      if not HasKey(key) then
+        return false
+      end
+    elseif string.sub(rule, 1, 5) == "$Has|" then
+      local item = string.sub(rule, 6)
+      if not Has(item) then
+        return false
+      end
+    end
+  end
+
+  if is_sequence_break then
+    return AccessibilityLevel.SequenceBreak
+  end
+
   return true
 end
 
